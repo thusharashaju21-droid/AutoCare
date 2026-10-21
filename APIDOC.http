@@ -1,0 +1,156 @@
+### 
+#1. User Registration
+
+POST http://127.0.0.1:8000/auto/register/
+Content-Type: application/json
+
+{
+    "username": "customer4",
+    "first_name": "sooraj",
+    "last_name": "das",
+    "email": "sooraj@gmail.com",
+    "password": "customer3@123"
+}
+
+
+###
+# 2. Get Logged-in User
+
+GET http://127.0.0.1:8000/auto/me/
+Authorization: Basic Y3VzdG9tZXI0OmN1c3RvbWVyM0AxMjM=
+
+
+### 
+#3. Create Service Request
+
+POST http://127.0.0.1:8000/auto/service-requests/
+Content-Type: application/json
+Authorization: Basic Y3VzdG9tZXI0OmN1c3RvbWVyM0AxMjM=
+
+
+{
+    "vehicle_number": "KL64A1234",
+    "vehicle_model": "Hyundai i20",
+    "problem_description": "Engine repair required",
+    "service_type": "Engine Repair",
+    "priority": "Critical",
+    "status": "Repairing",
+    "service_date": "2026-10-25"
+
+}
+
+
+
+#4. List My Service Requests
+###
+GET http://127.0.0.1:8000/auto/service-requests/
+Authorization: Basic Y3VzdG9tZXI0OmN1c3RvbWVyM0AxMjM=
+
+
+### 
+#5. Retrieve a Service Request
+
+GET http://127.0.0.1:8000/auto/service-requests/1/
+Authorization: Basic Y3VzdG9tZXI0OmN1c3RvbWVyM0AxMjM=
+
+
+###
+# 6. Update Service Request (PUT)
+
+PUT http://127.0.0.1:8000/auto/service-requests/12/
+Content-Type: application/json
+Authorization: Basic Y3VzdG9tZXI0OmN1c3RvbWVyM0AxMjM=
+
+{
+    "vehicle_number": "KL64A1234",
+    "vehicle_model": "Hyundai i20",
+    "problem_description": "Engine repair required",
+    "service_type": "Engine Repair",
+    "priority": "Critical",
+    "status": "Repairing",
+    "service_date": "2026-10-25"
+}
+
+
+
+### 
+#7. Partial Update (PATCH)
+
+PATCH http://127.0.0.1:8000/auto/service-requests/1/
+Content-Type: application/json
+Authorization: Basic Y3VzdG9tZXI0OmN1c3RvbWVyM0AxMjM=
+
+{
+"priority": "Critical"
+}
+
+
+
+###
+# 8. Delete Service Request
+
+DELETE http://127.0.0.1:8000/auto/service-requests/1/
+Authorization: Basic Y3VzdG9tZXI0OmN1c3RvbWVyM0AxMjM=
+
+###
+
+### 9. Filter by Service Type
+
+GET http://127.0.0.1:8000/auto/service-requests/filter/?service_type=Engine%20Repair
+Authorization: Basic Y3VzdG9tZXI0OmN1c3RvbWVyM0AxMjM=
+
+###
+
+### 10. Filter by Priority
+
+GET http://127.0.0.1:8000/auto/service-requests/filter/?priority=High
+Authorization: Basic Y3VzdG9tZXI0OmN1c3RvbWVyM0AxMjM=
+
+###
+
+### 11. Filter by Status
+
+GET http://127.0.0.1:8000/auto/service-requests/filter/?status=Requested
+Authorization: Basic Y3VzdG9tZXI0OmN1c3RvbWVyM0AxMjM=
+
+###
+
+### 12. Multiple Filters
+
+GET http://127.0.0.1:8000/auto/service-requests/filter/?priority=High&status=Requested
+Authorization: Basic Y3VzdG9tZXI0OmN1c3RvbWVyM0AxMjM=
+
+###
+
+### 13. Search by Vehicle Number
+
+GET http://127.0.0.1:8000/auto/service-requests/search/?vehicle_number=KL64A1234
+Authorization: Basic Y3VzdG9tZXI0OmN1c3RvbWVyM0AxMjM=
+
+###
+
+### 14. Search by Vehicle Model
+
+GET http://127.0.0.1:8000/auto/service-requests/search/?vehicle_model=Hyundai
+Authorization: Basic Y3VzdG9tZXI0OmN1c3RvbWVyM0AxMjM=
+
+###
+
+### 15. Pending Service Requests
+
+GET http://127.0.0.1:8000/auto/service-requests/pending/
+Authorization: Basic Y3VzdG9tZXI0OmN1c3RvbWVyM0AxMjM=
+
+###
+
+### 16. Total and Status-wise Count
+
+GET http://127.0.0.1:8000/auto/service-requests/count/
+Authorization: Basic Y3VzdG9tZXI0OmN1c3RvbWVyM0AxMjM=
+
+###
+
+### 17. High and Critical Requests
+
+GET http://127.0.0.1:8000/auto/service-requests/high-critical/
+Authorization: Basic Y3VzdG9tZXI0OmN1c3RvbWVyM0AxMjM=
