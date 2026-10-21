@@ -5,11 +5,11 @@ POST http://127.0.0.1:8000/auto/register/
 Content-Type: application/json
 
 {
-    "username": "customer4",
-    "first_name": "sooraj",
+    "username": "customer5",
+    "first_name": "vishnu",
     "last_name": "das",
-    "email": "sooraj@gmail.com",
-    "password": "customer3@123"
+    "email": "vishnu@gmail.com",
+    "password": "customer5@123"
 }
 
 
