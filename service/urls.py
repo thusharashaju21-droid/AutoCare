@@ -9,12 +9,16 @@ from service.views import PendingServiceRequestView
 from service.views import ServiceRequestCountView
 from service.views import ServiceRequestPriorityView
 
+from rest_framework.authtoken.views import obtain_auth_token
      
 urlpatterns = [
 
     # Registration and User
     path("register/", SignUpView.as_view()),
     path("me/", GetMeView.as_view()),
+
+    #generate token
+    path("token/",obtain_auth_token),
 
     # Create and List
     path("service-requests/", ServiceRequestListCreateView.as_view()),

@@ -13,8 +13,6 @@ from service.serializers import RegisterSerializer,ServiceRequestSerializer
 # 1. User Registration
 class SignUpView(APIView):
 
-    permission_classes = [permissions.AllowAny]
-
     def post(self, request):
         serializer = RegisterSerializer(data=request.data)
 
@@ -35,7 +33,7 @@ class SignUpView(APIView):
 # 2. Get Logged-in User
 class GetMeView(APIView):
 
-    authentication_classes = [authentication.BasicAuthentication]
+    authentication_classes = [authentication.TokenAuthentication]
     permission_classes = [permissions.IsAuthenticated]
 
     def get(self, request):
@@ -47,7 +45,7 @@ class GetMeView(APIView):
 # 3. List and Create Service Requests
 class ServiceRequestListCreateView(APIView):
 
-    authentication_classes = [authentication.BasicAuthentication]
+    authentication_classes = [authentication.TokenAuthentication]
     permission_classes = [permissions.IsAuthenticated]
 
     def get(self, request):
@@ -84,7 +82,7 @@ class ServiceRequestListCreateView(APIView):
 # 4. Retrieve, Update and Delete Own Service Requests
 class ServiceRequestDetailView(APIView):
 
-    authentication_classes = [authentication.BasicAuthentication]
+    authentication_classes = [authentication.TokenAuthentication]
     permission_classes = [permissions.IsAuthenticated]
 
     def get_object(self, request, pk):
@@ -156,7 +154,7 @@ class ServiceRequestDetailView(APIView):
 # 5. Filter by Service Type, Priority and Status
 class ServiceRequestFilterView(APIView):
 
-    authentication_classes = [authentication.BasicAuthentication]
+    authentication_classes = [authentication.TokenAuthentication]
     permission_classes = [permissions.IsAuthenticated]
 
     def get(self, request):
@@ -194,7 +192,7 @@ class ServiceRequestFilterView(APIView):
 # 6. Search by Vehicle Number and Model
 class ServiceRequestSearchView(APIView):
 
-    authentication_classes = [authentication.BasicAuthentication]
+    authentication_classes = [authentication.TokenAuthentication]
     permission_classes = [permissions.IsAuthenticated]
 
     def get(self, request):
@@ -226,7 +224,7 @@ class ServiceRequestSearchView(APIView):
 # 7. Pending Service Requests
 class PendingServiceRequestView(APIView):
 
-    authentication_classes = [authentication.BasicAuthentication]
+    authentication_classes = [authentication.TokenAuthentication]
     permission_classes = [permissions.IsAuthenticated]
 
     def get(self, request):
@@ -245,7 +243,7 @@ class PendingServiceRequestView(APIView):
 # 8. Total Count and Status-wise Count
 class ServiceRequestCountView(APIView):
 
-    authentication_classes = [authentication.BasicAuthentication]
+    authentication_classes = [authentication.TokenAuthentication]
     permission_classes = [permissions.IsAuthenticated]
 
     def get(self, request):
@@ -267,7 +265,7 @@ class ServiceRequestCountView(APIView):
 # 9. High and Critical Service Requests
 class ServiceRequestPriorityView(APIView):
 
-    authentication_classes = [authentication.BasicAuthentication]
+    authentication_classes = [authentication.TokenAuthentication]
     permission_classes = [permissions.IsAuthenticated]
 
     def get(self, request):
